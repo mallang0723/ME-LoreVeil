@@ -6,211 +6,211 @@
   },
   {
     "name": "basic tag",
-    "input": "Scene. <wi-exclude>Off-scene: Mira</wi-exclude> Done.",
+    "input": "Scene. <loreveil>Off-scene: Mira</loreveil> Done.",
     "blank": [
-      "<wi-exclude>Off-scene: Mira</wi-exclude>"
+      "<loreveil>Off-scene: Mira</loreveil>"
     ]
   },
   {
     "name": "tag name case-insensitive",
-    "input": "<WI-Exclude>Mira</wi-EXCLUDE> x",
+    "input": "<LoreVeil>Mira</lOREVEIL> x",
     "blank": [
-      "<WI-Exclude>Mira</wi-EXCLUDE>"
+      "<LoreVeil>Mira</lOREVEIL>"
     ]
   },
   {
     "name": "closing tag with trailing space",
-    "input": "<wi-exclude>Mira</wi-exclude > x",
+    "input": "<loreveil>Mira</loreveil > x",
     "blank": [
-      "<wi-exclude>Mira</wi-exclude >"
+      "<loreveil>Mira</loreveil >"
     ]
   },
   {
     "name": "markers",
-    "input": "a !--WI_EXCLUDE_START--!Mira!--WI_EXCLUDE_END--! b",
+    "input": "a !--LOREVEIL_START--!Mira!--LOREVEIL_END--! b",
     "blank": [
-      "!--WI_EXCLUDE_START--!Mira!--WI_EXCLUDE_END--!"
+      "!--LOREVEIL_START--!Mira!--LOREVEIL_END--!"
     ]
   },
   {
     "name": "markers are case-sensitive",
-    "input": "a !--wi_exclude_start--!Mira!--wi_exclude_end--! b",
+    "input": "a !--loreveil_start--!Mira!--loreveil_end--! b",
     "blank": []
   },
   {
     "name": "unclosed marker runs to end",
-    "input": "a !--WI_EXCLUDE_START--!Mira and Holt",
+    "input": "a !--LOREVEIL_START--!Mira and Holt",
     "blank": [
-      "!--WI_EXCLUDE_START--!Mira and Holt"
+      "!--LOREVEIL_START--!Mira and Holt"
     ]
   },
   {
     "name": "nested markers",
-    "input": "x !--WI_EXCLUDE_START--!a!--WI_EXCLUDE_START--!b!--WI_EXCLUDE_END--!c!--WI_EXCLUDE_END--! y",
+    "input": "x !--LOREVEIL_START--!a!--LOREVEIL_START--!b!--LOREVEIL_END--!c!--LOREVEIL_END--! y",
     "blank": [
-      "!--WI_EXCLUDE_START--!a!--WI_EXCLUDE_START--!b!--WI_EXCLUDE_END--!c!--WI_EXCLUDE_END--!"
+      "!--LOREVEIL_START--!a!--LOREVEIL_START--!b!--LOREVEIL_END--!c!--LOREVEIL_END--!"
     ]
   },
   {
     "name": "stray end marker ignored",
-    "input": "x !--WI_EXCLUDE_END--! Mira",
+    "input": "x !--LOREVEIL_END--! Mira",
     "blank": []
   },
   {
     "name": "attribute form",
-    "input": "<div class=\"tracker\" wi-exclude>Location: Anchor</div> after",
+    "input": "<div class=\"tracker\" loreveil>Location: Anchor</div> after",
     "blank": [
-      "<div class=\"tracker\" wi-exclude>Location: Anchor</div>"
+      "<div class=\"tracker\" loreveil>Location: Anchor</div>"
     ]
   },
   {
     "name": "attribute with value",
-    "input": "<div wi-exclude=\"true\">Mira</div> z",
+    "input": "<div loreveil=\"true\">Mira</div> z",
     "blank": [
-      "<div wi-exclude=\"true\">Mira</div>"
+      "<div loreveil=\"true\">Mira</div>"
     ]
   },
   {
     "name": "attribute name case-insensitive",
-    "input": "<p WI-EXCLUDE>Mira</p> z",
+    "input": "<p LOREVEIL>Mira</p> z",
     "blank": [
-      "<p WI-EXCLUDE>Mira</p>"
+      "<p LOREVEIL>Mira</p>"
     ]
   },
   {
     "name": "attribute nested same-name elements",
-    "input": "<div wi-exclude><div>Mira</div>Holt</div> after",
+    "input": "<div loreveil><div>Mira</div>Holt</div> after",
     "blank": [
-      "<div wi-exclude><div>Mira</div>Holt</div>"
+      "<div loreveil><div>Mira</div>Holt</div>"
     ]
   },
   {
     "name": "attribute value is not exclusion",
-    "input": "<div class=\"wi-exclude\">Mira</div>",
+    "input": "<div class=\"loreveil\">Mira</div>",
     "blank": []
   },
   {
     "name": "quoted > inside attribute",
-    "input": "<div title=\"a>b\" wi-exclude>Mira</div> ok",
+    "input": "<div title=\"a>b\" loreveil>Mira</div> ok",
     "blank": [
-      "<div title=\"a>b\" wi-exclude>Mira</div>"
+      "<div title=\"a>b\" loreveil>Mira</div>"
     ]
   },
   {
     "name": "self-closing excluded element",
-    "input": "before <span wi-exclude/> Mira",
+    "input": "before <span loreveil/> Mira",
     "blank": [
-      "<span wi-exclude/>"
+      "<span loreveil/>"
     ]
   },
   {
     "name": "self-closing excluded tag name",
-    "input": "before <wi-exclude/> Mira",
+    "input": "before <loreveil/> Mira",
     "blank": [
-      "<wi-exclude/>"
+      "<loreveil/>"
     ]
   },
   {
     "name": "void element",
-    "input": "<img src=\"x.png\" wi-exclude> Mira",
+    "input": "<img src=\"x.png\" loreveil> Mira",
     "blank": [
-      "<img src=\"x.png\" wi-exclude>"
+      "<img src=\"x.png\" loreveil>"
     ]
   },
   {
     "name": "unclosed element runs to end",
-    "input": "ok <wi-exclude>Mira forever",
+    "input": "ok <loreveil>Mira forever",
     "blank": [
-      "<wi-exclude>Mira forever"
+      "<loreveil>Mira forever"
     ]
   },
   {
     "name": "unterminated excluded opener runs to end",
-    "input": "ok <div wi-exclude title=\"oops>Mira",
+    "input": "ok <div loreveil title=\"oops>Mira",
     "blank": [
-      "<div wi-exclude title=\"oops>Mira"
+      "<div loreveil title=\"oops>Mira"
     ]
   },
   {
     "name": "comment makes tags inert",
-    "input": "<!-- <wi-exclude> -->Mira",
+    "input": "<!-- <loreveil> -->Mira",
     "blank": []
   },
   {
     "name": "comment inside excluded element is skipped",
-    "input": "<div wi-exclude><!-- </div> -->Mira</div> x",
+    "input": "<div loreveil><!-- </div> -->Mira</div> x",
     "blank": [
-      "<div wi-exclude><!-- </div> -->Mira</div>"
+      "<div loreveil><!-- </div> -->Mira</div>"
     ]
   },
   {
     "name": "tags inside marker region are inert",
-    "input": "!--WI_EXCLUDE_START--!<wi-exclude>!--WI_EXCLUDE_END--!Mira</wi-exclude>",
+    "input": "!--LOREVEIL_START--!<loreveil>!--LOREVEIL_END--!Mira</loreveil>",
     "blank": [
-      "!--WI_EXCLUDE_START--!<wi-exclude>!--WI_EXCLUDE_END--!"
+      "!--LOREVEIL_START--!<loreveil>!--LOREVEIL_END--!"
     ]
   },
   {
     "name": "whole message excluded becomes empty",
-    "input": "<wi-exclude>Mira</wi-exclude>",
+    "input": "<loreveil>Mira</loreveil>",
     "expectEmpty": true
   },
   {
     "name": "whole message excluded with surrounding whitespace",
-    "input": "  <wi-exclude>x</wi-exclude>\n",
+    "input": "  <loreveil>x</loreveil>\n",
     "expectEmpty": true
   },
   {
     "name": "raw text element body is inert",
-    "input": "<script>\"<wi-exclude>\"</script>Mira",
+    "input": "<script>\"<loreveil>\"</script>Mira",
     "blank": []
   },
   {
     "name": "lone less-than is not a tag",
-    "input": "a < b and <wi-exclude>Mira</wi-exclude>",
+    "input": "a < b and <loreveil>Mira</loreveil>",
     "blank": [
-      "<wi-exclude>Mira</wi-exclude>"
+      "<loreveil>Mira</loreveil>"
     ]
   },
   {
     "name": "unterminated quote in normal tag stops scan",
-    "input": "<div title=\"unterminated <wi-exclude>Mira</wi-exclude>",
+    "input": "<div title=\"unterminated <loreveil>Mira</loreveil>",
     "blank": []
   },
   {
     "name": "other tags inside region",
-    "input": "<wi-exclude><b>Mira</b></wi-exclude> x",
+    "input": "<loreveil><b>Mira</b></loreveil> x",
     "blank": [
-      "<wi-exclude><b>Mira</b></wi-exclude>"
+      "<loreveil><b>Mira</b></loreveil>"
     ]
   },
   {
     "name": "multiple regions",
-    "input": "A <wi-exclude>1</wi-exclude> B <wi-exclude>2</wi-exclude> C",
+    "input": "A <loreveil>1</loreveil> B <loreveil>2</loreveil> C",
     "blank": [
-      "<wi-exclude>1</wi-exclude>",
-      "<wi-exclude>2</wi-exclude>"
+      "<loreveil>1</loreveil>",
+      "<loreveil>2</loreveil>"
     ]
   },
   {
     "name": "no word fusion across region",
-    "input": "Mi<wi-exclude>x</wi-exclude>ra",
+    "input": "Mi<loreveil>x</loreveil>ra",
     "blank": [
-      "<wi-exclude>x</wi-exclude>"
+      "<loreveil>x</loreveil>"
     ]
   },
   {
     "name": "prototype-like tag names are not special",
-    "input": "<constructor>Mira</constructor> <toString wi-exclude>Holt</toString>",
+    "input": "<constructor>Mira</constructor> <toString loreveil>Holt</toString>",
     "blank": [
-      "<toString wi-exclude>Holt</toString>"
+      "<toString loreveil>Holt</toString>"
     ]
   },
   {
     "name": "non-BMP characters keep length",
-    "input": "😀<wi-exclude>😀Mira</wi-exclude>😀",
+    "input": "😀<loreveil>😀Mira</loreveil>😀",
     "blank": [
-      "<wi-exclude>😀Mira</wi-exclude>"
+      "<loreveil>😀Mira</loreveil>"
     ]
   }
 ]

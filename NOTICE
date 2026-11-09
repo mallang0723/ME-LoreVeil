@@ -8,8 +8,8 @@ lib/scan-exclusion.cjs and tests/fixtures/parser-vectors.json are adapted from
 our author-owned st-loreveil (AGPL-3.0), local reference commit
 587e050408882c79841183af44b011aa91763bf6.
 Source: lib/scan-exclusion.js and tests/test-vectors.json.
-Adaptation: CommonJS, fixed wi-exclude tag/attribute/marker names, exact
-/wi[-_]exclude/i fast path, and immutable chat-role message projection.
+Adaptation: CommonJS, fixed loreveil tag/attribute/marker names, exact
+/loreveil/i fast path, and immutable chat-role message projection.
 
 Marinara test fixtures
 Tests contain readable JavaScript transpiled from Pasta-Devs/Marinara-Engine,

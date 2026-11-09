@@ -22,7 +22,7 @@ const { AsyncLocalStorage } = require('node:async_hooks');
   // A second URL exercises duplicate-log suppression for the same file.
   await import(pathToFileURL(path.join(root, 'packages/server/dist/services/lorebook/keyword-scanner.js')) + '?again');
   await import(pathToFileURL(path.join(root, 'packages/shared/dist/utils/macro-engine.js')));
-  const content = '<div wi-exclude><ad-stat>Moonstone</ad-stat></div>';
+  const content = '<div loreveil><ad-stat>Moonstone</ad-stat></div>';
   const messages = Object.freeze([Object.freeze({ role: 'user', content })]);
   const clean = await requests.run(async () => {
     const input = [{ role: 'user', content }];

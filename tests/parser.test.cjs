@@ -21,8 +21,24 @@ test('fast path preserves strings, objects, arrays and unchanged message identit
   assert.equal(maskChatMessages(messages)[0], plain);
 });
 
+test('retired markers are ordinary text and preserve message identity', () => {
+  for (const content of [
+    '<wi-exclude>Moonstone</wi-exclude>',
+    '!--WI_EXCLUDE_START--!Moonstone!--WI_EXCLUDE_END--!',
+    '<div wi-exclude>Moonstone</div>',
+  ]) {
+    assert.equal(mask(content), content);
+    // Also exercise parsing after the new fast-path check has matched.
+    assert.equal(mask('loreveil ' + content), 'loreveil ' + content);
+    const message = Object.freeze({ role: 'user', content });
+    const messages = Object.freeze([message]);
+    assert.equal(maskChatMessages(messages), messages);
+    assert.equal(maskChatMessages(messages)[0], message);
+  }
+});
+
 test('only changed chat objects are copied; system/tool and metadata remain intact', () => {
-  const hidden = '<div wi-exclude><ad-stat>Moonstone</ad-stat></div>';
+  const hidden = '<div loreveil><ad-stat>Moonstone</ad-stat></div>';
   const messages = Object.freeze(['user', 'assistant', 'narrator', 'system', 'tool'].map(role =>
     Object.freeze({ role, content: hidden, id: role, metadata: Object.freeze({ original: true }) })));
   const result = maskChatMessages(messages);
@@ -37,7 +53,7 @@ test('only changed chat objects are copied; system/tool and metadata remain inta
 });
 
 test('nested excluded elements and marker-first processing retain visible suffixes', () => {
-  assert.equal(mask('<wi-exclude>a<wi-exclude>b</wi-exclude>c</wi-exclude>ok').trim(), 'ok');
-  assert.equal(mask('!--WI_EXCLUDE_START--!<div wi-exclude>!--WI_EXCLUDE_END--!Moonstone').trim(), 'Moonstone');
-  assert.equal(mask('<div data-wi-exclude>Moonstone</div>'), '<div data-wi-exclude>Moonstone</div>');
+  assert.equal(mask('<loreveil>a<loreveil>b</loreveil>c</loreveil>ok').trim(), 'ok');
+  assert.equal(mask('!--LOREVEIL_START--!<div loreveil>!--LOREVEIL_END--!Moonstone').trim(), 'Moonstone');
+  assert.equal(mask('<div data-loreveil>Moonstone</div>'), '<div data-loreveil>Moonstone</div>');
 });

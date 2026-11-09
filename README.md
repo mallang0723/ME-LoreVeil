@@ -9,19 +9,19 @@ SillyTavern용 자매 확장은 [ST-LoreVeil](https://github.com/mallang0723/ST-
 상태창·트래커처럼 매번 반복되는 블록이 로어북을 계속 건드릴 때, 그 블록만 검색에서 빼 줍니다. 아래 세 가지 표시 중 아무거나 쓰면 됩니다.
 
 ```html
-<wi-exclude>검색에서 제외할 내용</wi-exclude>
-!--WI_EXCLUDE_START--!검색에서 제외할 내용!--WI_EXCLUDE_END--!
-<div wi-exclude><ad-stat>상태창 내용</ad-stat></div>
+<loreveil>검색에서 제외할 내용</loreveil>
+!--LOREVEIL_START--!검색에서 제외할 내용!--LOREVEIL_END--!
+<div loreveil><ad-stat>상태창 내용</ad-stat></div>
 ```
 
-`wi-exclude`는 널리 쓰이는 표기라서, 이미 상태창 정규식이 `<div wi-exclude><ad-stat>…</ad-stat></div>` 형태로 출력하고 있다면 **그대로 동작**합니다.
+상태창 정규식의 출력 결과를 `<div loreveil>…</div>`로 감싸 주세요. 0.2.0부터는 새 표시만 지원하므로 기존 표시를 사용하는 메시지와 정규식 출력도 바꿔야 합니다.
 
 ### 규칙
 
 - 표시한 구간은 같은 길이의 공백으로 바뀌어 검색에 들어갑니다. 결과가 공백뿐이면 빈 글이 됩니다.
 - 태그·속성 이름은 대소문자를 구분하지 않습니다. START/END 마커는 위처럼 대문자로 씁니다.
 - 같은 이름의 중첩 태그와 따옴표 안의 `>`를 처리합니다.
-- `class="wi-exclude"` 같은 속성 값은 제외 표시로 보지 않습니다.
+- `class="loreveil"` 같은 속성 값은 제외 표시로 보지 않습니다.
 - 닫히지 않은 구간은 메시지 끝까지 제외됩니다.
 - 마커 형식을 가장 먼저 처리합니다.
 
@@ -125,13 +125,13 @@ docker compose up -d --force-recreate marinara   # Docker 없이는 서버 재�
 
 **fail closed**는 "그 사이트의 제외 기능을 끄고 Marinara의 원래 동작을 유지한다"는 뜻입니다. 서버가 깨지지는 않지만 해당 경로에서는 표시 안쪽 글도 다시 검색에 들어갑니다. 지원하지 않는 버전이거나 Marinara 코드가 달라져 패치할 위치를 정확히 한 곳 찾지 못할 때 생깁니다.
 
-간단한 동작 확인법: 로어북 항목의 키워드를 `<wi-exclude>키워드</wi-exclude>` 안에만 넣은 메시지를 보냈을 때 그 항목이 켜지지 않고, 표시 밖에 같은 단어를 쓰면 켜지는지 봅니다.
+간단한 동작 확인법: 로어북 항목의 키워드를 `<loreveil>키워드</loreveil>` 안에만 넣은 메시지를 보냈을 때 그 항목이 켜지지 않고, 표시 밖에 같은 단어를 쓰면 켜지는지 봅니다.
 
 ## Clean HTML 정규식과 함께 쓰기
 
 Marinara 기본 정규식 `Clean HTML (Outgoing Prompt)`는 프롬프트에서 HTML 태그를 지웁니다. 이 정규식은 **켜 둔 채로 쓰면 됩니다.**
 
-ME-LoreVeil은 프롬프트에는 기존대로 `정규식(원문)`을, 검색에는 `정규식(제외 구간을 먼저 비운 원문)`을 씁니다. 예를 들어 `<div wi-exclude>Moonstone</div>`는 모델에게 `Moonstone`으로 전달되고 저장 원문에는 태그가 남지만, 검색에서는 빠집니다. 직접 만든 prompt/both 정규식이 표시를 지우거나 다른 태그로 바꿔도 같은 방식으로 처리됩니다.
+ME-LoreVeil은 프롬프트에는 기존대로 `정규식(원문)`을, 검색에는 `정규식(제외 구간을 먼저 비운 원문)`을 씁니다. 예를 들어 `<div loreveil>Moonstone</div>`는 모델에게 `Moonstone`으로 전달되고 저장 원문에는 태그가 남지만, 검색에서는 빠집니다. 직접 만든 prompt/both 정규식이 표시를 지우거나 다른 태그로 바꿔도 같은 방식으로 처리됩니다.
 
 ## 알려진 한계
 

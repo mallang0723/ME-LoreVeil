@@ -7,7 +7,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { PATCHES, patchSource, checkVersion } = require('../runtime/ma-loreveil-runtime.cjs');
 const { reference, entry, read } = require('./support/reference.cjs');
-const hidden = '<div wi-exclude><ad-stat>Moonstone</ad-stat></div>';
+const hidden = '<div loreveil><ad-stat>Moonstone</ad-stat></div>';
 const transform = (source, file) => patchSource(source, PATCHES.find(p => p.file.endsWith('/' + file)));
 
 for (const version of ['2.5.1', '2.5.2']) {
@@ -60,7 +60,7 @@ for (const version of ['2.5.1', '2.5.2']) {
     assert.equal(activation[0].matchedCurrentContext, false);
     assert.equal(patched.scanForActivatedEntries([{ role: 'user', content: 'visible ' + hidden }],
       [entry({ keys: ['visible'], selective: true, secondaryKeys: ['Moonstone'] })]).length, 0);
-    assert.equal(patched.scanForActivatedEntries([{ role: 'user', content: 'Moon<wi-exclude>x</wi-exclude>stone' }], [entry()]).length, 0);
+    assert.equal(patched.scanForActivatedEntries([{ role: 'user', content: 'Moon<loreveil>x</loreveil>stone' }], [entry()]).length, 0);
   });
 
   test(`${version}: system sources and real recursive scan remain unchanged`, () => {

@@ -10,7 +10,7 @@ const { spawn } = require('node:child_process');
 const { pathToFileURL } = require('node:url');
 const { setTimeout: delay } = require('node:timers/promises');
 
-const hidden = '<div wi-exclude><ad-stat>Moonstone</ad-stat></div>';
+const hidden = '<div loreveil><ad-stat>Moonstone</ad-stat></div>';
 const sentinel = 'LOREVEIL_ENTRY_SENTINEL_73C9';
 const recSentinel1 = 'LOREVEIL_REC_ROOT_5A21';
 const recSentinel2 = 'LOREVEIL_REC_CHILD_9F04';

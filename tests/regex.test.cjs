@@ -8,7 +8,7 @@ const { reference, entry, cleanHTML } = require('./support/reference.cjs');
 const { requestHarness } = require('./support/request-scope.cjs');
 const runtime = globalThis[Symbol.for('ma-loreveil.runtime.v1')];
 const transform = (source, file) => patchSource(source, PATCHES.find(p => p.file.endsWith('/' + file)));
-const hidden = '<div wi-exclude><ad-stat>Moonstone</ad-stat></div>';
+const hidden = '<div loreveil><ad-stat>Moonstone</ad-stat></div>';
 const script = (findRegex, replaceString, extra = {}) => ({ ...cleanHTML, findRegex, replaceString, ...extra });
 
 for (const version of ['2.5.1', '2.5.2']) {
@@ -42,9 +42,9 @@ for (const version of ['2.5.1', '2.5.2']) {
 
   test(`${version}: custom regex removes or rewrites every marker form; outside replacements still match`, async () => {
     const cases = [
-      [hidden, [script('wi-exclude', 'data-status')]],
-      ['<wi-exclude>Moonstone</wi-exclude>', [script('wi-exclude', 'status')]],
-      ['!--WI_EXCLUDE_START--!Moonstone!--WI_EXCLUDE_END--!', [script('!--WI_EXCLUDE_(?:START|END)--!', '')]],
+      [hidden, [script('loreveil', 'data-status')]],
+      ['<loreveil>Moonstone</loreveil>', [script('loreveil', 'status')]],
+      ['!--LOREVEIL_START--!Moonstone!--LOREVEIL_END--!', [script('!--LOREVEIL_(?:START|END)--!', '')]],
       [hidden, [cleanHTML, script('Moonstone', 'Gemstone')]],
     ];
     for (const [content, scripts] of cases) await requests.run(() => {
@@ -62,7 +62,7 @@ for (const version of ['2.5.1', '2.5.2']) {
   test(`${version}: script selection, depth, targeting and trim use upstream semantics`, async () => {
     await requests.run(() => {
       const scripts = [
-        script('wi-exclude', 'status', { applyMode: 'display' }),
+        script('loreveil', 'status', { applyMode: 'display' }),
         script('outside', 'Moonstone', { enabled: false }),
         script('outside', 'Moonstone', { minDepth: 2 }),
         script('outside', 'Moonstone', { targetCharacterIds: ['other'] }),
