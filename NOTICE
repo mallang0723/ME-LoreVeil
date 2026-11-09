@@ -1,0 +1,59 @@
+ME-LoreVeil
+Copyright (c) 2026 mallang0723 and contributors.
+Project license: GNU Affero General Public License version 3 (AGPL-3.0-only).
+See LICENSE for the full text.
+
+Parser provenance
+lib/scan-exclusion.cjs and tests/fixtures/parser-vectors.json are adapted from
+our author-owned st-loreveil (AGPL-3.0), local reference commit
+587e050408882c79841183af44b011aa91763bf6.
+Source: lib/scan-exclusion.js and tests/test-vectors.json.
+Adaptation: CommonJS, fixed wi-exclude tag/attribute/marker names, exact
+/wi[-_]exclude/i fast path, and immutable chat-role message projection.
+
+Marinara test fixtures
+Tests contain readable JavaScript transpiled from Pasta-Devs/Marinara-Engine,
+licensed AGPL-3.0 by its authors/contributors. Source repository:
+https://github.com/Pasta-Devs/Marinara-Engine
+v2.5.1: ef069642164c57c8216585b0dde4c5aab1a508fe
+v2.5.2: ed8ac0f2c93888aec252116796b865aaa29e1791
+Exact paths, build settings and SHA-256 hashes are recorded in
+ tests/fixtures/marinara/manifest.json.
+Runtime code does not bundle the engine. Test fixture import bindings are
+replaced only by the test harness; keyword matching and scanner functions
+remain the compiled upstream implementation.
+The fix1 fixtures also include the upstream prompt regex application,
+replacement helpers, default regex seeding definitions and request logging.
+
+Memory runtime attribution
+The load-hook structure (Node module.registerHooks, nextLoad chaining,
+source conversion, exact-once source anchors and independent patch logging)
+is adapted from tlsiddl/marinara-memory-module
+(https://github.com/tlsiddl/marinara-memory-module), commit 8d5f090,
+memory-module/marinara-memory-runtime.cjs (runtime version 0.12.6).
+The original lists supported versions but does not enforce them; LoreVeil
+adds its own package identity/version checks. No unrelated memory service
+code is incorporated in this project. Its original runtime is used externally
+for coexistence tests. The MIT notice follows in full.
+
+MIT License
+
+Copyright (c) 2026 tlsiddl
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -1,0 +1,103 @@
+{
+  "build": "TypeScript 6.0.3 transpileModule; ES2022, ESM, verbatimModuleSyntax; source unmodified",
+  "versions": {
+    "2.5.1": {
+      "commit": "ef069642164c57c8216585b0dde4c5aab1a508fe",
+      "files": {
+        "packages/server/dist/services/lorebook/keyword-scanner.js": {
+          "fixture": "keyword-scanner.js",
+          "sha256": "c491efc051cf8c03ce90a1bd99af0fcfac8017fbc593234c62a60a5c30123ca9"
+        },
+        "packages/server/dist/services/lorebook/embeddings.js": {
+          "fixture": "embeddings.js",
+          "sha256": "2b4553cb479d73baa8aca15e25db8a956d633764ef1b1d58de2784f6badbb747"
+        },
+        "packages/server/dist/services/agents/knowledge-router.js": {
+          "fixture": "knowledge-router.js",
+          "sha256": "4bd9beb00d031178fd6b3d6233dae7786989f82624d3d336981033cc60b9a27c"
+        },
+        "packages/shared/dist/utils/lorebook-keyword-matching.js": {
+          "fixture": "lorebook-keyword-matching.js",
+          "sha256": "cb204ebf8cc4dcfd6b8b6cfaa8111c96ff8af74a1f7abfab95da744dc9eaca0e"
+        },
+        "packages/shared/dist/utils/regex-safety.js": {
+          "fixture": "2.5.1-regex-safety.js",
+          "sha256": "4abb04203526f48beba9d08b8d085453cf9ea01d163e7d4d3d079acd664fa3a9"
+        },
+        "packages/server/dist/services/lorebook/seeded-random.js": {
+          "fixture": "seeded-random.js",
+          "sha256": "0abb42689f67c2a77a66e77169c4493bdf7df0926fe7b963958ae0afc893220b"
+        },
+        "packages/server/dist/services/lorebook/regex-timeout.js": {
+          "fixture": "regex-timeout.js",
+          "sha256": "b6149ee18f75514c60388c1db0c459a2631dd1af4eb19c63b5715cdecdb814e9"
+        },
+        "packages/server/dist/lib/request-logging.js": {
+          "fixture": "request-logging.js",
+          "sha256": "6eb76da13e999f2c534de10168c10d7b14acd14833d43a4335b95d345579bf2d"
+        },
+        "packages/server/dist/services/regex/regex-application.js": {
+          "fixture": "regex-application.js",
+          "sha256": "ec84f6b442d4b9abe4dcccbcee3c57113ec2591de61e9ffcad8a94a2d599070c"
+        },
+        "packages/shared/dist/utils/regex-replacement.js": {
+          "fixture": "regex-replacement.js",
+          "sha256": "23c901918dce006b151650a3eeb6a753aa7598ebb989bec18e008bb7eb39a5f1"
+        },
+        "packages/server/dist/db/seed-regex.js": {
+          "fixture": "seed-regex.js",
+          "sha256": "3580a3837ac35c834d0102e65027373ad08856c7ee44e39d6b6a4740d0bc9e1c"
+        }
+      }
+    },
+    "2.5.2": {
+      "commit": "ed8ac0f2c93888aec252116796b865aaa29e1791",
+      "files": {
+        "packages/server/dist/services/lorebook/keyword-scanner.js": {
+          "fixture": "keyword-scanner.js",
+          "sha256": "c491efc051cf8c03ce90a1bd99af0fcfac8017fbc593234c62a60a5c30123ca9"
+        },
+        "packages/server/dist/services/lorebook/embeddings.js": {
+          "fixture": "embeddings.js",
+          "sha256": "2b4553cb479d73baa8aca15e25db8a956d633764ef1b1d58de2784f6badbb747"
+        },
+        "packages/server/dist/services/agents/knowledge-router.js": {
+          "fixture": "knowledge-router.js",
+          "sha256": "4bd9beb00d031178fd6b3d6233dae7786989f82624d3d336981033cc60b9a27c"
+        },
+        "packages/shared/dist/utils/lorebook-keyword-matching.js": {
+          "fixture": "lorebook-keyword-matching.js",
+          "sha256": "cb204ebf8cc4dcfd6b8b6cfaa8111c96ff8af74a1f7abfab95da744dc9eaca0e"
+        },
+        "packages/shared/dist/utils/regex-safety.js": {
+          "fixture": "2.5.2-regex-safety.js",
+          "sha256": "ecf60440fd12f2f644e2854a250a820f295bd55b8f275c16f378394abd58db8f"
+        },
+        "packages/server/dist/services/lorebook/seeded-random.js": {
+          "fixture": "seeded-random.js",
+          "sha256": "0abb42689f67c2a77a66e77169c4493bdf7df0926fe7b963958ae0afc893220b"
+        },
+        "packages/server/dist/services/lorebook/regex-timeout.js": {
+          "fixture": "regex-timeout.js",
+          "sha256": "b6149ee18f75514c60388c1db0c459a2631dd1af4eb19c63b5715cdecdb814e9"
+        },
+        "packages/server/dist/lib/request-logging.js": {
+          "fixture": "request-logging.js",
+          "sha256": "6eb76da13e999f2c534de10168c10d7b14acd14833d43a4335b95d345579bf2d"
+        },
+        "packages/server/dist/services/regex/regex-application.js": {
+          "fixture": "regex-application.js",
+          "sha256": "ec84f6b442d4b9abe4dcccbcee3c57113ec2591de61e9ffcad8a94a2d599070c"
+        },
+        "packages/shared/dist/utils/regex-replacement.js": {
+          "fixture": "regex-replacement.js",
+          "sha256": "23c901918dce006b151650a3eeb6a753aa7598ebb989bec18e008bb7eb39a5f1"
+        },
+        "packages/server/dist/db/seed-regex.js": {
+          "fixture": "seed-regex.js",
+          "sha256": "3580a3837ac35c834d0102e65027373ad08856c7ee44e39d6b6a4740d0bc9e1c"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "me-loreveil",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Marinara 2.5.1/2.5.2 chat-only lorebook scan exclusions",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=24 <27"
+  },
+  "scripts": {
+    "test": "node --test --test-isolation=none tests/*.test.cjs",
+    "test:integration": "node --test --test-isolation=none tests/integration/*.test.cjs",
+    "test:e2e": "node --test --test-isolation=none tests/e2e/*.test.cjs"
+  }
+}
